@@ -1,0 +1,11 @@
+h2 {
+    font-family: Arial, sans-serif;
+    font-size: 20x;
+    font-weight: bold;
+    color: #2c3e50; /* Dark Blue Shade */
+    text-align: center;
+    background-color: #f8f9fa; /* Light Gray Background */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
