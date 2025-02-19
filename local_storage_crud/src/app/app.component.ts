@@ -18,9 +18,9 @@ export class User{
   address: string;
 
   constructor (name: string, age: number, phone: string, address: string){
-    this.name="";
-    this.age=0;
-    this.phone="";
-    this.address="";
+    this.name=name;
+    this.age=age;
+    this.phone=phone;
+    this.address=address;
   }
 }

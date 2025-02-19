@@ -1,6 +1,7 @@
+import { User } from './../app.component';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { User } from '../app.component';
+
 
 @Component({
   selector: 'app-create-user',
@@ -9,11 +10,19 @@ import { User } from '../app.component';
   styleUrl: './create-user.component.css'
 })
 export class CreateUserComponent implements OnInit{
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
   user:User = new User('', 0,'','');
 
+  ngOnInit(): void {        
+  }
+  onSubmit(){
+    let users = JSON.parse(localStorage.getItem('users') || '[]');
+    users.push(this.user);
+
+    localStorage.setItem('users',JSON.stringify(users));
+
+    this.user = new User ('',0,'','');
+    alert('New user create successfully');
+  }
 }
 
 
