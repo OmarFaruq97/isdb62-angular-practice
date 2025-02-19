@@ -1,25 +1,53 @@
 <div class="container mt-5 w-70">
     <h2>List of users</h2>
-<table class="table table-dark table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Age</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Address</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        @for (user of Users; track user.name) {
-        <tr>
-            <!-- <td>{{users.indexOf(users) +1}}</td> -->
-            <td>{{user.name}}</td>
-            <td>{{user.age}}</td>
-            <td>{{user.phone}}</td>
-            <td>{{user.address}}</td>
-        </tr>
-        }
-    </tbody>
-</table>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (user of Users; track user.name) {
+            <tr id="user-{{user.name}}">
+                <td>{{user.name}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.address}}</td>
+                <td>                    
+                    <button class="btn btn-danger delete-btn" (click)="deleteUser(user)">Delete</button>
+                    <button class="btn btn-info edit-btn"(click)="editUser(user)" >Edit</button>                                        
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
 </div>
+
+<!-- <script>
+    // Function to delete a user row
+    function deleteUser(userName) {
+        const userRow = document.getElementById('user-' + userName);
+        if (userRow) {
+            userRow.remove();
+        }
+    }
+
+    // Function to update the anchor link dynamically
+    function updateAnchorLink(userName) {
+        const userLink = document.getElementById('user-link-' + userName);
+        if (userLink) {
+            // Update the link with a URL based on the user's name (or any other data)
+            userLink.href = '/users/' + userName;  // Example URL format
+            userLink.innerText = 'View ' + userName;
+        }
+    }
+
+    Call the update function for each user (just a demonstration of how it could be used)
+    @for (user of Users; track user.name) {
+        updateAnchorLink('{{user.name}}');
+    }
+</script> -->
