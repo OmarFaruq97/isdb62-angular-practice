@@ -1,13 +1,19 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { User } from './../app.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 =======
+=======
+>>>>>>> Stashed changes
 import { Component, OnInit } from '@angular/core';
 import { User } from '../app.component';
 import { Router } from '@angular/router';
 import { JsonPipe } from '@angular/common';
 import { state } from '@angular/animations';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 @Component({
@@ -16,6 +22,7 @@ import { state } from '@angular/animations';
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 export class UserListComponent implements OnInit {
 Users: User[] = [];
@@ -57,4 +64,25 @@ export class UserListComponent implements OnInit{
     }
   }
 }
+=======
+export class UserListComponent implements OnInit{
+  Users: User[]= [];
+
+  constructor(private router: Router){
+
+  }
+  ngOnInit(): void {
+      this.Users= JSON.parse(localStorage.getItem('users') ||'[]');
+  }
+  editUser(user:User){
+    this.router.navigate(['/create-user'], {state:{user}});
+  }
+  deleteUser(user: User){
+    if (confirm('Are you sure delete?')) {
+      this.Users = this.Users.filter(u=> u !==user);
+      localStorage.setItem('user',JSON.stringify(this.Users))
+    }
+  }
+}
+>>>>>>> Stashed changes
 

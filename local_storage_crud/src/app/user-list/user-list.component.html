@@ -1,6 +1,10 @@
 <div class="container mt-5 w-70">
     <h2>List of users</h2>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    @if (Users.length>0) {
+>>>>>>> Stashed changes
 =======
     @if (Users.length>0) {
 >>>>>>> Stashed changes
@@ -12,7 +16,11 @@
                 <th scope="col">Phone</th>
                 <th scope="col">Address</th>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 <th scope="col">Action</th>
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -21,7 +29,11 @@
         <tbody>
             @for (user of Users; track user.name) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <tr id="user-{{user.name}}">
+=======
+            <tr>
+>>>>>>> Stashed changes
 =======
             <tr>
 >>>>>>> Stashed changes
@@ -30,21 +42,28 @@
                 <td>{{user.phone}}</td>
                 <td>{{user.address}}</td>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 <td>                    
                     <button class="btn btn-danger delete-btn" (click)="deleteUser(user)">Delete</button>
                     <button class="btn btn-info edit-btn"(click)="editUser(user)" >Edit</button>                                        
                 </td>
 =======
+=======
+>>>>>>> Stashed changes
                 <td>
                     <!-- <button class="btn btn-danger delete-btn" (click)="deleteUser(user)">Delete</button>
                     <button class="btn btn-info edit-btn"(click)="editUser(user)" >Edit</button> -->
                 </td>
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             </tr>
             }
         </tbody>
     </table>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 </div>
 
@@ -73,11 +92,17 @@
     }
 </script> -->
 =======
+=======
+>>>>>>> Stashed changes
     } @else {
         <div class="alert alert-warning">
             <a> No Data Found</a>
         </div>
     }
 
+<<<<<<< Updated upstream
+</div>
+>>>>>>> Stashed changes
+=======
 </div>
 >>>>>>> Stashed changes

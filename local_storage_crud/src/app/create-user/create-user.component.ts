@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 =======
 import { User } from '../app.component';
 import { Router } from '@angular/router';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 @Component({
@@ -16,6 +19,7 @@ import { Router } from '@angular/router';
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.css',
 })
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 export class CreateUserComponent{
   user:User = new User('', 0,'','');
@@ -44,6 +48,29 @@ export class CreateUserComponent{
 
     this.user = new User ('',0,'','');   
     // alert('New user create successfully');
+=======
+export class CreateUserComponent {
+  user: User = new User('', 0, '', '');
+  isUpdate = false;
+
+  constructor(private router: Router) {
+    const nav = this.router.getCurrentNavigation();
+    if (nav?.extras.state && nav?.extras.state['user']) {
+      this.isUpdate = true;
+    }
+  }
+  onSubmit(){
+    let users: User[]=JSON.parse(localStorage.getItem('users') || '[]');
+    if(this.isUpdate){
+      users = users.map(user => (this.user.phone == this.user.phone? this.user : this.user))
+    }else{
+      users.push(this.user)
+    }
+    // users.push (this.user);
+
+    this.user = new User('', 0,'','');
+
+>>>>>>> Stashed changes
 =======
 export class CreateUserComponent {
   user: User = new User('', 0, '', '');
