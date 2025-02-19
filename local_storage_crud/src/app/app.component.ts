@@ -17,24 +17,12 @@ export class User {
   phone: string;
   address: string;
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
   constructor (name: string, age: number, phone: string, address: string){
     this.name=name;
     this.age=age;
     this.phone=phone;
     this.address=address;
-=======
-=======
->>>>>>> Stashed changes
-  constructor(name: string, age: number, phone: string, address: string) {
-    this.name = name;
-    this.age = age;
-    this.phone = phone;
-    this.address = address;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
   }
 }
