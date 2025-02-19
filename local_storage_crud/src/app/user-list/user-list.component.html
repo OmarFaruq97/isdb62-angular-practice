@@ -11,13 +11,13 @@
         </tr>
     </thead>
     <tbody>
-        @for (user of data; track user.name) {
+        @for (user of Users; track user.name) {
         <tr>
+            <!-- <td>{{users.indexOf(users) +1}}</td> -->
             <td>{{user.name}}</td>
             <td>{{user.age}}</td>
             <td>{{user.phone}}</td>
             <td>{{user.address}}</td>
-
         </tr>
         }
     </tbody>

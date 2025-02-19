@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { User } from './../app.component';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-list',
@@ -6,7 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css'
 })
-export class UserListComponent {
-data: any;
+export class UserListComponent implements OnInit {
+Users: User[] = [];
+  
+
+ngOnInit(): void {
+    this.Users = JSON.parse(localStorage.getItem('users') || '[]');
+}
 
 }
