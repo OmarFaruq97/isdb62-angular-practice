@@ -18,14 +18,14 @@ export class UserListComponent implements OnInit {
     this.Users = JSON.parse(localStorage.getItem('users') || '[]');
   }
 
-  editUser(User: User) {
-    this.router.navigate(['/create-user'], { state: { User } });
+  editUser(user: User) {
+    this.router.navigate(['/create-user'], { state: { user } });
   }
 
-  deleteUser(User: User) {
+  deleteUser(user: User) {
     if (confirm('Are you sure delete?')) {
-      this.Users = this.Users.filter((u) => u !== User);
-      localStorage.setItem('user', JSON.stringify(this.Users));
+      this.Users = this.Users.filter(u => u !== user);
+      localStorage.setItem('users', JSON.stringify(this.Users));
     }
   }
 }

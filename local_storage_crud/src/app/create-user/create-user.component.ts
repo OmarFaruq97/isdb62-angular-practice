@@ -1,4 +1,3 @@
-import { state } from '@angular/animations';
 import { User } from './../app.component';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -17,7 +16,7 @@ export class CreateUserComponent {
   constructor(private router: Router) {
     const nav = this.router.getCurrentNavigation();
     if (nav?.extras.state && nav?.extras.state['user']) {
-      this.isUpdate = nav.extras.state['user'];
+      this.user = nav.extras.state['user'];
       this.isUpdate = true;
     }
   }
