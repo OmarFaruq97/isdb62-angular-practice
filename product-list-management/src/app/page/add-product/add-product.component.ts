@@ -35,7 +35,7 @@ export class AddProductComponent {
       // Update or add product
       if (this.isUpdate){
         // update the product if sNumber matchs
-        products : products.map((product) => (product.sNumber === this.p.sNumber? this.p : product));        
+        products = products.map((product) => (product.sNumber === this.p.sNumber? this.p : product));        
       } else {
         // Add a new product to the array
         products.push(this.p);
@@ -44,7 +44,7 @@ export class AddProductComponent {
       // Save the updated list of product back to localstorage
       localStorage.setItem('product', JSON.stringify(products));
 
-      // reset the 'u' object
+      // reset the '' object
       this.p = new Product('', 0, 0, new Date(''), new Date(''),'', '',0);
 
       // navigate to the table page
