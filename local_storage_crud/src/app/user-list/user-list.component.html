@@ -1,5 +1,6 @@
-<div class="contaniner mt-5 w-70">
-  <h2>List Users</h2>
+<div class="container mt-5">
+  <h2 class="text-center" style="color: #00aaff;">List Users</h2>
+
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -10,9 +11,11 @@
         <th scope="col">Action</th>
       </tr>
     </thead>
+
     <tbody>
-      @for (user of Users; track user.name) {
+      @for (user of Users; track user) {
       <tr>
+        <td>{{Users.indexOf(user)+1}}</td>
         <td>{{user.name}}</td>
         <td>{{user.age}}</td>
         <td>{{user.phone}}</td>
