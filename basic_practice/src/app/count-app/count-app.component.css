@@ -55,10 +55,11 @@ button {
     color: #ffffff;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 50%;
     cursor: pointer;
     font-size: 16px;
     margin: 5px;
+    
 }
 
 /* Specific button styling */
@@ -79,7 +80,7 @@ button.decrement:hover {
     background-color: #186294;
 }
 button.reset {
-    background-color: #bab23c;
+    background-color: #635c02;
 }
 button.reset:hover {
     background-color: #186294;
