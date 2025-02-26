@@ -1,0 +1,21 @@
+/* Container for the flag */
+.flag {
+    width: 380px;
+    height: 220px;
+    background-color: #006A4E;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Red circle (the sun) */
+  .circle {
+    width: 140px;
+    height: 140px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    left: 30%; /* Position the circle slightly to the left */
+  }
+  
