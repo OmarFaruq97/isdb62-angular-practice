@@ -23,6 +23,7 @@ export class CreateUserComponent {
 
   ngOnInit(): void {}
 
+  // JSON.parse bring data
   onSubmit() {
     let users: User[] = JSON.parse(localStorage.getItem('users') || '[]');
 
@@ -38,6 +39,8 @@ export class CreateUserComponent {
 
     localStorage.setItem('users', JSON.stringify(users));
 
+
+    // for empty form as previous
     this.user = new User('', 0, '', '');
     // alert('New user create successfully');
     this.router.navigate(['/user-list']);
