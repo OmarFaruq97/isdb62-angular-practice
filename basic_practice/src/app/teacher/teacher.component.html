@@ -1,0 +1,93 @@
+<div class="container mt-4">
+    <h2 class="text-center">Teacher CRUD</h2>
+
+    <!-- Button to Open the Modal -->
+    <button class="btn btn-primary mb-3" (click)="openModal()">Add Teacher</button>
+
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>School Name</th>
+                <th>Head Teacher</th>
+                <th>Assigned Subject</th>
+                <th>Salary</th>
+                <th>Joining Date</th>
+                <th>Aggressive</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (teacher of teachers; track teacher) {
+            <tr>
+                <td>{{ teacher.id }}</td>
+                <td>{{ teacher.name }}</td>
+                <td>{{ (teacher.schoolName? teacher.schoolName: '') | shorten:10 }}</td>
+                <td>{{ teacher.isHeadTeacher ? 'Yes' : 'No' }}</td>
+                <td>{{ teacher.assignedSubject }}</td>
+                <td>{{ (teacher.salary? teacher.salary: 0) | currency:'INR':'symbol' : '' }}</td>
+                <td>{{ (teacher.joiningDate ? teacher.salary: 25/12/2022) | date:'dd/MM/yy' : '' }}</td>
+                <td>{{ teacher.isAggressive ? 'Yes' : 'No' }}</td>
+                <td>
+                    <button class="btn btn-sm btn-warning me-2" (click)="openModal(teacher)">Edit</button>
+                    <button class="btn btn-sm btn-danger" (click)="confirmDelete(teacher.id)">Delete</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="teacherModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Teacher</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (submit)="saveTeacher()">
+                    <input type="hidden" [(ngModel)]="newTeacher.id" name="id" />
+
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="newTeacher.name" name="name" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">School Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="newTeacher.schoolName" name="schoolName"
+                            required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Assigned Subject</label>
+                        <input type="text" class="form-control" [(ngModel)]="newTeacher.assignedSubject"
+                            name="assignedSubject" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Salary</label>
+                        <input type="number" class="form-control" [(ngModel)]="newTeacher.salary" name="salary"
+                            required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Joining Date</label>
+                        <input type="date" class="form-control" [(ngModel)]="newTeacher.joiningDate" name="joiningDate"
+                            required />
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" [(ngModel)]="newTeacher.isHeadTeacher"
+                            name="isHeadTeacher" [checked]="newTeacher.isHeadTeacher" />
+                        <label class="form-check-label">Is Head Teacher?</label>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" [(ngModel)]="newTeacher.isAggressive"
+                            name="isAggressive" [checked]="newTeacher.isAggressive" />
+                        <label class="form-check-label">Is Aggressive?</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">{{ isEditing ? 'Update' : 'Save' }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

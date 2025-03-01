@@ -3,18 +3,23 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-harry-potter',
+  imports: [],
   templateUrl: './harry-potter.component.html',
-  styleUrls: ['./harry-potter.component.css']
+  styleUrl: './harry-potter.component.css'
 })
 export class HarryPotterComponent implements OnInit {
   spells: any[] = [];
 
-  constructor(private harryPotterService: HarryPotterService) {}
+  constructor (private harryPotterService: HarryPotterService) {}
 
-  ngOnInit(): void {
-    console.log('Harry Potter');
-    this.fetchSpells();      
-  }
+    ngOnInit(): void {
+      console.log('Harry Potter');
+      this.fetchSpells();      
+    }
+
+    getSpells(){
+      this.harryPotterService.getSpells().subscribe(spells => this.spells = spells);
+    }
 
   fetchSpells() {
     this.harryPotterService.getSpells().subscribe(
