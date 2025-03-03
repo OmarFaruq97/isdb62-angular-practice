@@ -8,7 +8,6 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { MouseEventsComponent } from './mouse-events/mouse-events.component';
 import { InputUsingGetSetComponent } from './input-using-get-set/input-using-get-set.component';
 
-
 export const routes: Routes = [
     { path : '', component : HomeComponent},
     { path : 'count-app', component : CountAppComponent},
@@ -17,6 +16,6 @@ export const routes: Routes = [
     { path : 'harry-potter', component : HarryPotterComponent},
     { path : 'teacher', component : TeacherComponent},
     { path : 'mouse-event', component : MouseEventsComponent},
-    { path : 'input-value', component : InputUsingGetSetComponent},
+    { path : 'input-value', component : InputUsingGetSetComponent},    
     { path : '**', redirectTo: 'home'}
 ];

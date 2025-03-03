@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { TeacherService } from './../services/teacher.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,17 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
+  str: String = '';
+
+  constructor(private TeacherService:  TeacherService) { }
+
+  ngOnInit() {
+    this.TeacherService.callLocalApi().subscribe(data =>{
+      console.log(data);
+      this.str = data;
+      
+    });      
+  }
 }

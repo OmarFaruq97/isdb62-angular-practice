@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Teacher } from '../teacher/teacher.component';
@@ -7,7 +8,8 @@ import { Teacher } from '../teacher/teacher.component';
   providedIn: 'root'
 })
 export class TeacherService {
-  apiUrl = 'http://192.168.0.219:8080/teachers';  
+  apiUrl = 'http://192.168.0.219:8080/teachers';
+  localApiUrl = 'http://localhost:8083/info';  
 
   constructor(private http: HttpClient) { }
 
@@ -26,5 +28,13 @@ export class TeacherService {
 
   deleteTeacher(id: number) : Observable<void>{
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  callLocalApi(): Observable<string>{
+    let params : HttpParams= new HttpParams();
+    params = params.append ('my_Name', 'Omar');
+    //params = params.append ('fatherName', 'Yousuf');
+    params = params.append ('age', 29);
+    return this.http.get(this.localApiUrl, { params: params, responseType: 'text'});
   }
 }
