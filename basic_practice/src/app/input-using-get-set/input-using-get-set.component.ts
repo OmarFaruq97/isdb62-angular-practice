@@ -8,10 +8,25 @@ import { Component } from '@angular/core';
 })
 export class InputUsingGetSetComponent {
   name="";
-  diplayname="";
+  displayName="";
   email="";
   getName(event: Event){
-    console.log(event);
-    
+    this.name=(event.target as HTMLInputElement).value
+    // console.log(event);    
   }
+  setName(){
+    this.name="sam"
+  }
+  showName(){
+    this.displayName=this.name;
+  }
+  getEmail(val:string){
+    console.log(val);
+    
+    this.email=val
+  }
+  setEmail(){
+    this.email="default@gmail.com"
+  }
+
 }
