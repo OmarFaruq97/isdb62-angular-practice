@@ -1,12 +1,46 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from "./navbar/navbar.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'medicine_zone_web_app';
 }
+export class Product {
+  name: string;
+  price: number;
+  quantity: number;
+  purchaseDate: Date;
+  sellDate: Date;
+  buyer: string;
+  seller: string;
+  sNumber: number;
+
+  constructor(
+    name: string,
+    price: number,
+    quantity: number,
+    purchaseDate: Date,
+    sellDate: Date,
+    buyer: string,
+    seller: string,
+    sNumber: number
+  ) {
+    this.name = name;
+    this.price = price;
+    this.quantity = quantity;
+    this.purchaseDate = purchaseDate;
+    this.sellDate = sellDate;
+    this.buyer = buyer;
+    this.seller = seller;
+    this.sNumber = sNumber;
+  }
+}
+ 
+  
+
