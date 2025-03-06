@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Product } from '../app.component';
+import { Medicine } from '../app.component';
 
 
 @Component({
@@ -12,14 +12,14 @@ import { Product } from '../app.component';
 })
 export class AddMedComponent {
 
-  p: Product = new Product
-    ('', 0, 0, new Date(''), new Date(''), '', '', 0);
+  p: Medicine = new Medicine
+    ('', '', '', '', '', 0);
     isUpdate = false;
 
     constructor(private router: Router) {
       const nav = this.router.getCurrentNavigation();
-      if(nav?.extras?.state?.['product']){
-        this.p = nav.extras.state['product'];
+      if(nav?.extras?.state?.['medicine']){
+        this.p = nav.extras.state['medicine'];
         this.isUpdate = true;
       }
     }
@@ -31,25 +31,25 @@ export class AddMedComponent {
 
     onSubmit(): void{
       // Retrive users from localStoreage
-      let products : Product[] = JSON.parse(localStorage.getItem('product') || '[]');
+      let medicines : Medicine[] = JSON.parse(localStorage.getItem('medicine') || '[]');
 
       // Update or add product
       if (this.isUpdate){
         // update the product if sNumber matchs
-        products = products.map((product) => (product.sNumber === this.p.sNumber? this.p : product));        
+        medicines = medicines.map((medicine) => (medicine.sNumber === this.p.sNumber? this.p : medicine));        
       } else {
         // Add a new product to the array
-        products.push(this.p);
+        medicines.push(this.p);
       }
 
       // Save the updated list of product back to localstorage
-      localStorage.setItem('product', JSON.stringify(products));
+      localStorage.setItem('product', JSON.stringify(medicines));
 
       // reset the '' object
-      this.p = new Product('', 0, 0, new Date(''), new Date(''),'', '',0);
+      this.p = new Medicine('', '', '', '', '', 0);
 
       // navigate to the table page
-      this.router.navigate(['/list-product']);
+      this.router.navigate(['/all-med']);
     }
 
 }

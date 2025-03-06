@@ -11,36 +11,29 @@ import { NavbarComponent } from "./navbar/navbar.component";
 export class AppComponent {
   title = 'medicine_zone_web_app';
 }
-export class Product {
+export class Medicine {
   name: string;
+  type: string;
+  strength : string;
+  company: string;
+  packsize:string;
   price: number;
-  quantity: number;
-  purchaseDate: Date;
-  sellDate: Date;
-  buyer: string;
-  seller: string;
-  sNumber: number;
+  sNumber: any;
 
   constructor(
     name: string,
-    price: number,
-    quantity: number,
-    purchaseDate: Date,
-    sellDate: Date,
-    buyer: string,
-    seller: string,
-    sNumber: number
-  ) {
+    type: string,
+    strength: string,
+    company: string,
+    packsize: string,
+    price: number
+  )    
+    {
     this.name = name;
+    this.type = type;
+    this.strength = strength;
+    this.company = company;
+    this.packsize = packsize;
     this.price = price;
-    this.quantity = quantity;
-    this.purchaseDate = purchaseDate;
-    this.sellDate = sellDate;
-    this.buyer = buyer;
-    this.seller = seller;
-    this.sNumber = sNumber;
-  }
+  }  
 }
- 
-  
-
