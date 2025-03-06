@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pratice_02": {
+    "medicine_zone_web_app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/pratice_02",
+            "outputPath": "dist/medicine_zone_web_app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "pratice_02:build:production"
+              "buildTarget": "medicine_zone_web_app:build:production"
             },
             "development": {
-              "buildTarget": "pratice_02:build:development"
+              "buildTarget": "medicine_zone_web_app:build:development"
             }
           },
           "defaultConfiguration": "development"
