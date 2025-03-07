@@ -13,27 +13,29 @@ export class AppComponent {
 }
 export class Medicine {
   name: string;
-  type: string;
   strength : string;
+  type: string;  
   company: string;
   packsize:string;
   price: number;
-  sNumber: any;
+  sNumber: number;
 
   constructor(
     name: string,
-    type: string,
     strength: string,
+    type: string,
     company: string,
     packsize: string,
-    price: number
+    price: number,
+    sNumber: number
   )    
     {
     this.name = name;
-    this.type = type;
     this.strength = strength;
+    this.type = type;    
     this.company = company;
     this.packsize = packsize;
     this.price = price;
+    this.sNumber = sNumber;
   }  
 }
