@@ -24,9 +24,11 @@
 
             <textarea class="form-control" id="address" rows="3" name="address" [(ngModel)]="user.address"></textarea>
         </div>
-        <div>
-            <button type="submit" class="btn btn-primary" onclick="window.location.href='/user-list'">Submit</button>
+
+         <div>
+          <button type="submit" class="btn btn-success">{{ isUpdate? 'Update' : 'Submit' }}</button>
         </div>
+        
         <div>
         </div>
     </form>

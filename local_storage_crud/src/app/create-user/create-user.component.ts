@@ -1,5 +1,5 @@
 import { User } from './../app.component';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -27,18 +27,17 @@ export class CreateUserComponent {
   onSubmit() {
     let users: User[] = JSON.parse(localStorage.getItem('users') || '[]');
 
+    //here phone number is primary key not editable
     if (this.isUpdate) {
-      users = users.map((user) =>
-        user.phone == this.user.phone ? this.user : user
+      users = users.map(
+        (user) => (user.phone === this.user.phone ? this.user : user) 
       );
     } else {
       users.push(this.user);
     }
 
     //  JSON.stringify make to String
-
     localStorage.setItem('users', JSON.stringify(users));
-
 
     // for empty form as previous
     this.user = new User('', 0, '', '');
