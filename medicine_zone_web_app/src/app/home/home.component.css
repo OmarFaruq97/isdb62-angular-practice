@@ -1,0 +1,11 @@
+/* home.component.css */
+
+/* Container for centering the image */
+
+  
+  /* Image styles */
+  .image {
+    height: 600px;                 /* Fixed height for the image */
+    width: 100%;                   /* Maintain aspect ratio */
+  }
+  
