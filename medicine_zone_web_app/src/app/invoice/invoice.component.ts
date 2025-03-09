@@ -22,7 +22,18 @@ export class InvoiceComponent {
   contactNumber: string = '';
   items: InvoiceItem[] = [{ itemName: '', quantity: 0, price: 0, total: 0 }];
   totalAmount: number = 0;  
-salesHistory: any;
+salesHistory: any[] = [] ;
+
+ngOnInit():void {
+  this.loadSalehistory();
+}
+  loadSalehistory() {
+    const invoices = JSON.parse(localStorage.getItem('invoices') || '[]');
+    this.salesHistory = invoices;
+    throw new Error('Method not implemented.');
+  }
+
+
 
   addItem(): void {
     this.items.push({ itemName: '', quantity: 0, price: 0, total: 0 });
@@ -37,7 +48,7 @@ salesHistory: any;
     this.totalAmount = this.items.reduce((sum, item) => {
       item.total = item.quantity * item.price;
       return sum + item.total;
-      
+
     }, 0);
   }
 
@@ -59,8 +70,8 @@ salesHistory: any;
     this.contactNumber = '';
     this.items = [{ itemName: '', quantity: 0, price: 0, total: 0 }];
     this.totalAmount = 0;
-    
 
     alert('Invoice saved successfully!');
   }
+  
 }
