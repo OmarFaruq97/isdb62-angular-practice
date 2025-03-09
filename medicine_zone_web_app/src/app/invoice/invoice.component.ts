@@ -7,11 +7,12 @@ interface InvoiceItem {
   quantity: number;
   price: number;
   total: number;
+  
 }
 
 @Component({
   selector: 'app-invoice',
-  standalone: true,
+  // standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './invoice.component.html',
   styleUrl: './invoice.component.css'
@@ -20,7 +21,7 @@ export class InvoiceComponent {
   customerName: string = '';
   contactNumber: string = '';
   items: InvoiceItem[] = [{ itemName: '', quantity: 0, price: 0, total: 0 }];
-  totalAmount: number = 0;
+  totalAmount: number = 0;  
 salesHistory: any;
 
   addItem(): void {
@@ -36,6 +37,7 @@ salesHistory: any;
     this.totalAmount = this.items.reduce((sum, item) => {
       item.total = item.quantity * item.price;
       return sum + item.total;
+      
     }, 0);
   }
 
@@ -44,7 +46,7 @@ salesHistory: any;
       customerName: this.customerName,
       contactNumber: this.contactNumber,
       items: this.items,
-      totalAmount: this.totalAmount,
+      totalAmount: this.totalAmount,      
     };
 
     // Save to localStorage (for demo purposes)
@@ -57,6 +59,7 @@ salesHistory: any;
     this.contactNumber = '';
     this.items = [{ itemName: '', quantity: 0, price: 0, total: 0 }];
     this.totalAmount = 0;
+    
 
     alert('Invoice saved successfully!');
   }
