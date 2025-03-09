@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './all-med.component.css'
 })
 export class AllMedComponent implements OnInit{
+
   medicine : Medicine []  = [];
 
   constructor (private router: Router){}

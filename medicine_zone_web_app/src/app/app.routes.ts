@@ -5,12 +5,8 @@ import { AllMedComponent } from './all-med/all-med.component';
 import { BuyMedComponent } from './buy-med/buy-med.component';
 
 export const routes: Routes = [
-   
-    {path: '', component: HomeComponent}
-    ,{ path : 'add-med', component : AddMedComponent}
-    ,{ path: 'all-med', component : AllMedComponent}
-    ,{ path : 'buy-med', component : BuyMedComponent}
-    
-    
-    
+  { path: '', component: HomeComponent },
+  { path: 'add-med', component: AddMedComponent },
+  { path: 'all-med', component: AllMedComponent },
+  { path: 'buy-med', component: BuyMedComponent },
 ];

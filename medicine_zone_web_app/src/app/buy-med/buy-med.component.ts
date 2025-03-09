@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './buy-med.component.css'
 })
 export class BuyMedComponent {
+ 
+  };
 
-}
+  

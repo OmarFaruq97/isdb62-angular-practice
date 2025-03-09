@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from "./navbar/navbar.component";
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'medicine_zone_web_app';
 }
 export class Medicine {
   name: string;
-  strength : string;
-  type: string;  
+  strength: string;
+  type: string;
   company: string;
-  packsize:string;
+  packsize: string;
   price: number;
   sNumber: number;
 
@@ -28,14 +28,32 @@ export class Medicine {
     packsize: string,
     price: number,
     sNumber: number
-  )    
-    {
+  ) {
     this.name = name;
     this.strength = strength;
-    this.type = type;    
+    this.type = type;
     this.company = company;
     this.packsize = packsize;
     this.price = price;
     this.sNumber = sNumber;
-  }  
+  }
+}
+// buy-med constractor
+export class Buy {
+  medicine: string;
+  quantity: number;
+  name: string;
+  contact: number;
+
+  constructor(
+    medicine: string,
+    quantity: number,
+    name: string,
+    contact: number
+  ) {
+    this.medicine = medicine;
+    this.quantity = quantity;
+    this.name = name;
+    this.contact = contact;
+  }
 }
