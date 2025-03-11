@@ -22,7 +22,7 @@ export class InvoiceComponent {
   contactNumber: string = '';
   items: InvoiceItem[] = [{ itemName: '', quantity: 0, price: 0, total: 0 }];
   totalAmount: number = 0;  
-salesHistory: any[] = [] ;
+  salesHistory: any[] = [] ;
 
 ngOnInit():void {
   this.loadSalehistory();
@@ -32,7 +32,6 @@ ngOnInit():void {
     this.salesHistory = invoices;
     throw new Error('Method not implemented.');
   }
-
 
 
   addItem(): void {

@@ -1,0 +1,60 @@
+body {
+    background-image: url('https://img.freepik.com/free-vector/flat-3d-isometric-pharmaceutics-pharmacy-drug-store_126523-1607.jpg?uid=R189998369&ga=GA1.1.512456195.1741070871&semt=ais_hybrid');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Style the form container */
+  .form-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+  }
+
+  /* Style the heading */
+  .form-container h3 {
+    color: #007bff; /* Blue color for the heading */
+    font-weight: bold;
+    text-align: center;
+  }
+
+  /* Style the labels */
+  .col-form-label-lg {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  /* Style the input fields */
+  .form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  /* Style the submit button */
+  .btn-success {
+    background-color: #28a745; /* Green color for the button */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+  }
+
+  .btn-success:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
