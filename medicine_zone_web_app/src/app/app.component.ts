@@ -38,22 +38,6 @@ export class Medicine {
     this.sNumber = sNumber;
   }
 }
-// buy-med constractor
-export class Buy {
-  medicine: string;
-  quantity: number;
-  name: string;
-  contact: number;
 
-  constructor(
-    medicine: string,
-    quantity: number,
-    name: string,
-    contact: number
-  ) {
-    this.medicine = medicine;
-    this.quantity = quantity;
-    this.name = name;
-    this.contact = contact;
-  }
-}
+
+
