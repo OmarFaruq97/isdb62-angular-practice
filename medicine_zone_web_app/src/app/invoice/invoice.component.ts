@@ -7,7 +7,6 @@ interface InvoiceItem {
   quantity: number;
   price: number;
   total: number;
-  
 }
 
 @Component({
@@ -15,24 +14,23 @@ interface InvoiceItem {
   // standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './invoice.component.html',
-  styleUrl: './invoice.component.css'
+  styleUrl: './invoice.component.css',
 })
 export class InvoiceComponent {
   customerName: string = '';
   contactNumber: string = '';
   items: InvoiceItem[] = [{ itemName: '', quantity: 0, price: 0, total: 0 }];
-  totalAmount: number = 0;  
-  salesHistory: any[] = [] ;
+  totalAmount: number = 0;
+  salesHistory: any[] = [];
 
-ngOnInit():void {
-  this.loadSalehistory();
-}
+  ngOnInit(): void {
+    this.loadSalehistory();
+  }
   loadSalehistory() {
     const invoices = JSON.parse(localStorage.getItem('invoices') || '[]');
     this.salesHistory = invoices;
     throw new Error('Method not implemented.');
   }
-
 
   addItem(): void {
     this.items.push({ itemName: '', quantity: 0, price: 0, total: 0 });
@@ -47,7 +45,6 @@ ngOnInit():void {
     this.totalAmount = this.items.reduce((sum, item) => {
       item.total = item.quantity * item.price;
       return sum + item.total;
-
     }, 0);
   }
 
@@ -56,7 +53,8 @@ ngOnInit():void {
       customerName: this.customerName,
       contactNumber: this.contactNumber,
       items: this.items,
-      totalAmount: this.totalAmount,      
+      totalAmount: this.totalAmount,
+      
     };
 
     // Save to localStorage (for demo purposes)
@@ -71,6 +69,8 @@ ngOnInit():void {
     this.totalAmount = 0;
 
     alert('Invoice saved successfully!');
+    const load = JSON.parse(localStorage.getItem('invoices') || '[]');
+    this.salesHistory = load;
   }
   
 }
