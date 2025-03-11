@@ -1,11 +1,28 @@
-/* home.component.css */
+/* Style the image container */
+.image-container {
+  position: relative; /* Ensure the heading is positioned relative to the container */
+  text-align: centerl; /* Center the heading */
+}
 
-/* Container for centering the image */
+/* Style the image */
+.image-container .image {
+  width: 100%; /* Make the image responsive */
+  height: 635px; /* 635 is my home pc */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
 
-  
-  /* Image styles */
-  .image {
-    height: 537px;                 /* Fixed height for the image */
-    width: 100%;                   /* Maintain aspect ratio */
-  }
-  
+/* Style the h2 heading */
+.image-container .welcome-heading {
+  position: absolute; /* Position the heading absolutely within the container */
+  top: 165px; /* Distance from the top */
+  left: 25%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for exact centering */
+  color: white; /* White text color */
+  font-size: 2.5rem; /* Large font size */
+  font-weight: bold; /* Bold text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  padding: 10px 20px; /* Add padding */
+  border-radius: 30px; /* Rounded corners */
+}

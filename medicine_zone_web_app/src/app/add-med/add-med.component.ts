@@ -10,7 +10,7 @@ import { Medicine } from '../app.component';
   styleUrl: './add-med.component.css'
 })
 export class AddMedComponent {
-  p: Medicine = new Medicine('', '-mg', '', '', '', 0, 0); // Initialize with default values
+  p: Medicine = new Medicine('', '-mg', '','' , '', '', 0, 0); // Initialize with default values
   isUpdate = false;
 
   constructor(private router: Router) {
@@ -45,7 +45,7 @@ export class AddMedComponent {
     localStorage.setItem('medicine', JSON.stringify(medicines));
 
     // Reset the form
-    this.p = new Medicine('', '-mg', '', '', '', 0, 0);
+    this.p = new Medicine('', '-mg', '', '', '', '', 0, 0);
 
     // Navigate to the table page
     this.router.navigate(['/all-med']);

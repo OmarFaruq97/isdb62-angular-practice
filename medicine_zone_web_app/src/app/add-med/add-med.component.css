@@ -1,60 +1,66 @@
-body {
-    background-image: url('https://img.freepik.com/free-vector/flat-3d-isometric-pharmaceutics-pharmacy-drug-store_126523-1607.jpg?uid=R189998369&ga=GA1.1.512456195.1741070871&semt=ais_hybrid');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+/* Set a background image for the form container */
+.form-container {
+  background-image: url('https://img.freepik.com/free-photo/top-view-pills-with-spoon_23-2148021438.jpg?uid=R189998369&ga=GA1.1.706820480.1735050692&semt=ais_hybrid'); /* Replace with your image URL */
+  background-size: cover; /* Ensure the image covers the entire container */
+  background-position: center; /* Center the background image */
+  padding: 20px; /* Add some padding */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+}
 
-  /* Style the form container */
-  .form-container {
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 800px;
-    width: 100%;
-  }
+/* Style the form header */
+.form-container h3 {
+  color: #333; /* Dark text color */
+  font-weight: bold; /* Bold text */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
 
-  /* Style the heading */
-  .form-container h3 {
-    color: #007bff; /* Blue color for the heading */
-    font-weight: bold;
-    text-align: center;
-  }
+/* Style the form labels */
+.form-container .col-form-label-lg {
+  font-size: 1.1rem; /* Larger font size */
+  font-weight: 500; /* Medium font weight */
+  color: #555; /* Dark gray text color */
+}
 
-  /* Style the labels */
-  .col-form-label-lg {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #333;
-  }
+/* Style the form inputs */
+.form-container .form-control {
+  border-radius: 8px; /* Rounded corners for inputs */
+  border: 1px solid #ccc; /* Light gray border */
+  padding: 10px; /* Add some padding */
+  font-size: 1rem; /* Font size */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow for inputs */
+}
 
-  /* Style the input fields */
-  .form-control {
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    font-size: 1rem;
-  }
 
-  /* Style the submit button */
-  .btn-success {
-    background-color: #28a745; /* Green color for the button */
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-    margin: 20px auto 0;
-  }
+/* Style the submit button */
+.form-container .btn-success {
+  background-color: #28a745; /* Green background */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add padding */
+  font-size: 1.1rem; /* Larger font size */
+  border-radius: 8px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
 
-  .btn-success:hover {
-    background-color: #218838; /* Darker green on hover */
-  }
+.form-container .btn-success:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Add some spacing between form rows */
+.form-container .row {
+  margin-bottom: 15px;
+}
+
+/* Custom button styling */
+.custom-btn {
+  background-color: #167387; /* Dark blue background */
+  
+  color: white; /* White text */
+}
+
+/* Hover effect */
+.custom-btn:hover {
+  background-color: #0e0e4d; /* Slightly darker blue on hover */
+  
+}

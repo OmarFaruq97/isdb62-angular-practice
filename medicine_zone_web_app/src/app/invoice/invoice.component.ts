@@ -11,26 +11,27 @@ interface InvoiceItem {
 
 @Component({
   selector: 'app-invoice',
-  // standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './invoice.component.html',
   styleUrl: './invoice.component.css',
 })
+
 export class InvoiceComponent {
   customerName: string = '';
   contactNumber: string = '';
   items: InvoiceItem[] = [{ itemName: '', quantity: 0, price: 0, total: 0 }];
   totalAmount: number = 0;
   salesHistory: any[] = [];
+  
 
   ngOnInit(): void {
     this.loadSalehistory();
   }
+  
   loadSalehistory() {
     const invoices = JSON.parse(localStorage.getItem('invoices') || '[]');
-    this.salesHistory = invoices;
-    throw new Error('Method not implemented.');
-  }
+    this.salesHistory = invoices;    
+  }  
 
   addItem(): void {
     this.items.push({ itemName: '', quantity: 0, price: 0, total: 0 });
@@ -53,8 +54,7 @@ export class InvoiceComponent {
       customerName: this.customerName,
       contactNumber: this.contactNumber,
       items: this.items,
-      totalAmount: this.totalAmount,
-      
+      totalAmount: this.totalAmount      
     };
 
     // Save to localStorage (for demo purposes)
@@ -68,9 +68,14 @@ export class InvoiceComponent {
     this.items = [{ itemName: '', quantity: 0, price: 0, total: 0 }];
     this.totalAmount = 0;
 
-    alert('Invoice saved successfully!');
-    const load = JSON.parse(localStorage.getItem('invoices') || '[]');
-    this.salesHistory = load;
+    alert('Invoice saved successfully!');  
+    this.loadSalehistory();
   }
-  
+
+  deleteSale(index: number): void {
+    if (confirm('are you sre to delete this this sale history')) {
+      this.salesHistory.splice(index, 1);
+      localStorage.setItem('invoices', JSON.stringify(this.salesHistory));      
+    }
+  }  
 }

@@ -1,40 +1,36 @@
-<div class="container mt-3" src="">
+<div class="container mt-3">
     <h3>Product List Table</h3>
     <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">ID </th>
-                <th scope="col">Medicine Name </th>
-                <th scope="col">Strenght</th>
-                <th scope="col">Dosage form</th>                
-                <th scope="col">Company</th>
-                <th scope="col">Pack Size</th>
-                <th scope="col">Unit Price</th>                
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (value of medicine; track value) {
-            <tr>
-
-                <td>{{medicine.indexOf(value) + 1}}</td>
-                <td>{{value.name}}</td>
-                <td>{{value.strength}}</td>
-                <td>{{value.type}}</td>                
-                <td>{{value.company}}</td>
-                <td>{{value.packsize}}</td>
-                <td>{{value.price}}</td>
-                <td>
-                    <button class="btn btn-warning"
-                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;margin-right: 5px;"
-                        (click)="editMedicine(value)">Edit</button>
-
-                    <button class="btn btn-danger  "
-                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                        (click)="deleteMedicine(value)">Delete</button>
-                </td>
-            </tr>
-            }
-        </tbody>
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Medicine Name</th>
+          <th scope="col">Strength</th>
+          <th scope="col">Generic</th>
+          <th scope="col">Dosage Form</th>
+          <th scope="col">Company</th>
+          <th scope="col">Pack Size</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (value of medicine; track value) {
+        <tr>
+          <td>{{medicine.indexOf(value) + 1}}</td>
+          <td>{{value.name}}</td>
+          <td>{{value.strength}}</td>
+          <td>{{value.generic}}</td>
+          <td>{{value.type}}</td>
+          <td>{{value.company}}</td>
+          <td>{{value.packsize}}</td>
+          <td>{{value.price}}</td>
+          <td>
+            <button class="btn btn-warning" (click)="editMedicine(value)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteMedicine(value)">Delete</button>
+          </td>
+        </tr>
+        }
+      </tbody>
     </table>
-</div>
+  </div>

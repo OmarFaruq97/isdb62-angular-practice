@@ -15,6 +15,7 @@ export class AppComponent {
 export class Medicine {
   name: string;
   strength: string;
+  generic: string;
   type: string;
   company: string;
   packsize: string;
@@ -24,6 +25,7 @@ export class Medicine {
   constructor(
     name: string,
     strength: string,
+    generic: string,
     type: string,
     company: string,
     packsize: string,
@@ -32,6 +34,7 @@ export class Medicine {
   ) {
     this.name = name;
     this.strength = strength;
+    this.generic = generic;
     this.type = type;
     this.company = company;
     this.packsize = packsize;
