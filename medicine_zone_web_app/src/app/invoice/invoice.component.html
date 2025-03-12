@@ -17,35 +17,42 @@
         </div>
       </div>
   
-      <div class="mt-3">
-        <h4>Items</h4>
+      <div class="mt-3" style="margin-left: 99px; ">
+        <!-- <h4 style="margin-right: 15px;">Items</h4> -->
 
-        <div *ngFor="let item of items; let i = index" class="row mb-2">
+        <div *ngFor="let item of items; let i = index" class="row mb-2" style=" justify-content: end;
+    margin-right: -2px;">
           
-          <div class="col-sm-3">            
+          <div class="col-sm-3">
+            <label for="#">Items</label>            
             <input type="text" class="form-control" placeholder="Item Name" [(ngModel)]="item.itemName" name="itemName{{i}}" required />
           </div>
           
-          <div class="col-sm-2">            
+          <div class="col-sm-2">   
+            <label for="#">Quantity</label>         
             <input type="number" class="form-control" [(ngModel)]="item.quantity" (input)="calculateTotal()" name="quantity{{i}}" required />
           </div>
 
-          <div class="col-sm-2">            
+          <div class="col-sm-2">   
+            <label for="#">Price</label>         
             <input type="number" class="form-control"  [(ngModel)]="item.price" (input)="calculateTotal()" name="price{{i}}" required />
           </div>
 
-          <div class="col-sm-2">            
+          <div class="col-sm-2">   
+            <label for="#">Total</label>        
             <input type="number" class="form-control" placeholder="Total" [(ngModel)]="item.total" name="{{ i }}" [readonly]="true" />
           </div>
 
           <div class="col-sm-2">        
-            <button type="button" class="btn btn-danger" (click)="removeItem(i)">Remove</button>
+            <button type="button" class="btn btn-danger" (click)="removeItem(i)" style="margin-top: 24px;">Remove</button>
           </div>          
         </div>
   
-        <button type="button" class="btn btn-primary" (click)="addItem()">Add Item</button>
+       
       </div>
-  
+      <button type="button" class="btn btn-primary" (click)="addItem()">Add Item</button>
+
+
       <div class="mt-3">
         <h4>Total Amount: {{ totalAmount }}</h4>
       </div>
