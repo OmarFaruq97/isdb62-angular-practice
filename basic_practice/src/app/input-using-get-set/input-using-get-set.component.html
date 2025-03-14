@@ -1,9 +1,23 @@
 <h3>Get and Set Input field value</h3>
+<div>
+    <label for="">Full Name : </label>
+    <input type="text" value="{{name}}" (input)="getName($event)" placeholder="Enter your name">
+    <p>Display name : {{ displayName }}</p><br>
+    <button (click)="showName()">Get Name</button>
+    <button (click)="setName()">Set Name</button>
+</div>
+<hr>
+<div>
+    <h4> Email: {{ email}}</h4>
+    <input type="text" value="{{email }}" #emailField>
+    <button (click)="getEmail(emailField.value)">Get Email</button>
+    <button (click)="setEmail()">Set Name</button>
+</div>
+<hr>
 
 <div>
-    <label for="">Full Name : {{ name }}</label>
-    <input type="text" (input)="getName($event)" placeholder="Enter your name">
-    <br>
-    <button>Done</button>
+    <h4>Contract: <p>{{contact}}</p>
+    </h4>
+    <input type="number" #contactField>
+    <button (click)="getcontact(contactField.valueAsNumber)">Get Contact</button>
 </div>
-

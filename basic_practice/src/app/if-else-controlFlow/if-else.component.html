@@ -1,0 +1,49 @@
+<h3 class="text-center">If else Statment</h3>
+
+<hr>
+<div>
+    <h5>hideSee</h5>
+    <button (click)="hide()"> Hide</button>
+    <button (click)="see()"> See</button>
+    <button (click)="hideSeee()">Hide&See</button>
+    @if (hideSee) {
+    <div style="height: 100px; width: 200px; background-color: rgb(75, 57, 92);"></div>
+    <hr><br>
+    }
+</div>
+
+<!-- here Color change -->
+<div>
+    <h5>Color</h5>
+    <button (click)="colorChange()">change color</button>
+    @if (color) {
+    <div style="height: 100px; width: 150px; background-color: rgb(143, 9, 9);">
+
+    </div>
+    }@else{
+    <div style="height: 100px; width: 150px; background-color: gold">
+
+    </div>
+    }
+</div><br><hr>
+<div>
+    <button (click)="handleColor(1)">Red</button>
+    <button (click)="handleColor(2)">Green</button>
+    <button (click)="handleColor(3)">Yellow</button>
+    <button (click)="handleColor(4)">Defult</button><br>
+    <input type="text" (input)="inputHandle($event)">
+    
+    @if (multiColor==1) {
+        <div style="height: 100px; width: 150px; background-color: red"></div>
+    }@else if (multiColor ==2) {
+        <div style="height: 100px; width: 150px; background-color: green"></div>
+    }@else if (multiColor==3) {
+        <div style="height: 100px; width: 150px; background-color: yellow"></div>
+    }@else {
+        <div style="height: 100px; width: 150px; background-color: black"></div>
+    }
+    
+    
+    
+    
+</div>

@@ -7,6 +7,7 @@ import { HarryPotterComponent } from './harry-potter/harry-potter.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { MouseEventsComponent } from './mouse-events/mouse-events.component';
 import { InputUsingGetSetComponent } from './input-using-get-set/input-using-get-set.component';
+import { IfElseComponent } from './if-else-controlFlow/if-else.component';
 
 export const routes: Routes = [
     { path : '', component : HomeComponent},
@@ -16,6 +17,7 @@ export const routes: Routes = [
     { path : 'harry-potter', component : HarryPotterComponent},
     { path : 'teacher', component : TeacherComponent},
     { path : 'mouse-event', component : MouseEventsComponent},
-    { path : 'input-value', component : InputUsingGetSetComponent},    
+    { path : 'input-value', component : InputUsingGetSetComponent},
+    { path : 'if-else', component : IfElseComponent},
     { path : '**', redirectTo: 'home'}
 ];
