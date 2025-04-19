@@ -8,6 +8,7 @@ import { TeacherComponent } from './teacher/teacher.component';
 import { MouseEventsComponent } from './mouse-events/mouse-events.component';
 import { InputUsingGetSetComponent } from './input-using-get-set/input-using-get-set.component';
 import { IfElseComponent } from './if-else-controlFlow/if-else.component';
+import { SignalComponent } from './signal/signal.component';
 
 export const routes: Routes = [
     { path : '', component : HomeComponent},
@@ -19,5 +20,6 @@ export const routes: Routes = [
     { path : 'mouse-event', component : MouseEventsComponent},
     { path : 'input-value', component : InputUsingGetSetComponent},
     { path : 'if-else', component : IfElseComponent},
+    { path : 'signal', component : SignalComponent},
     { path : '**', redirectTo: 'home'}
 ];
