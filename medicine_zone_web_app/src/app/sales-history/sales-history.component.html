@@ -7,7 +7,7 @@
           <th>Customer Name</th>
           <th>Contact Number</th>
           <th>Items</th>
-          <th>Total Amount</th>    
+          <th>Total Amount</th>
           <th>Action</th>        
         </tr>
       </thead>
@@ -22,9 +22,8 @@
             </ul>
           </td>
           <td>{{ sale.totalAmount }}</td>
-          <td>
-            <!-- Delete button that calls the deleteSale method with index -->
-            <button class="btn btn-danger btn-sm" (click)="deleteSale(i)">Delete</button>
+          <td>            
+            <button class="btn btn-danger btn-sm" (click)="deleteSale(i)">Return sales</button>
           </td>
         </tr>
       </tbody>

@@ -1,9 +1,50 @@
-<div class="image-container">
-  <!-- Add the h2 heading -->
+<div class="image-container text-center" style="position: relative;">
+  <!-- Heading -->
   <h2 class="welcome-heading">Welcome to Medicine Zone</h2>
 
   <!-- Image -->
-  <img class="image"
-    src="https://img.freepik.com/free-photo/high-view-blue-pills-spilled-from-container_23-2148438982.jpg?uid=R189998369&ga=GA1.1.706820480.1735050692&semt=ais_hybrid"
-    alt="Image" />
+  <img class="image img-fluid"
+       src="https://img.freepik.com/free-photo/high-view-blue-pills-spilled-from-container_23-2148438982.jpg?uid=R189998369&ga=GA1.1.706820480.1735050692&semt=ais_hybrid"
+       alt="Medicine pills"
+       style="width: 100%; height: auto;" />
+
+  <!-- Login Form -->
+  <form (ngSubmit)="onLogin()"
+        style="position: absolute; 
+               bottom: 40%; 
+               left: 25%; 
+               transform: translateX(-50%); 
+               max-width: 400px; 
+               width: 100%;">
+    <div class="mb-3">
+      <label for="username" class="form-label">
+        <strong>Username</strong>
+      </label>
+      <input type="text"
+             class="form-control"
+             id="username"
+             name="username"
+             required />
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">
+        <strong>Password</strong>
+      </label>
+      <input type="password"
+             class="form-control"
+             id="password"
+             name="password"
+             required />
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 mb-2">
+      Login
+    </button>
+    
+    <div class="d-flex justify-content-between mt-3">
+      <a href="/forgot-password" class="text-decoration-none">Forgot Password?</a>
+      <a href="/register" class="text-decoration-none">Create Account</a>
+    </div>
+  </form>
 </div>

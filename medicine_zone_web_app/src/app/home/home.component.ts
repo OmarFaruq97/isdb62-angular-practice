@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+onLogin() {
+throw new Error('Method not implemented.');
+}
 
 }

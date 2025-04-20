@@ -7,6 +7,7 @@ interface InvoiceItem {
   quantity: number;
   price: number;
   total: number;
+  discount:number;
 }
 
 @Component({
@@ -19,10 +20,13 @@ interface InvoiceItem {
 export class InvoiceComponent {
   customerName: string = '';
   contactNumber: string = '';
-  items: InvoiceItem[] = [{ itemName: '', quantity: 0, price: 0, total: 0 }];
+  items: InvoiceItem[] = [{
+    itemName: '', quantity: 0, price: 0, total: 0,
+    discount: 0
+  }];
   totalAmount: number = 0;
+  discount: number = 0; // Fixed amount discount
   salesHistory: any[] = [];
-  discount: number = 0; // Discount percentage
 
   ngOnInit(): void {
     this.loadSalehistory();
@@ -34,7 +38,10 @@ export class InvoiceComponent {
   }
 
   addItem(): void {
-    this.items.push({ itemName: '', quantity: 0, price: 0, total: 0 });
+    this.items.push({
+      itemName: '', quantity: 0, price: 0, total: 0,
+      discount: 0
+    });
   }
 
   removeItem(index: number): void {
@@ -43,14 +50,15 @@ export class InvoiceComponent {
   }
 
   calculateTotal(): void {
-    let subtotal = this.items.reduce((sum, item) => {
+    let subtotal = 0;
+    this.items.forEach(item => {
       item.total = item.quantity * item.price;
-      return sum + item.total;
-    }, 0);
+      subtotal += item.total;
+    });
 
-    // Apply the discount as percentage
-    const discountAmount = (subtotal * this.discount) / 100;
-    this.totalAmount = subtotal - discountAmount;
+    // Apply fixed amount discount (not %)
+    this.totalAmount = subtotal - this.discount;
+    if (this.totalAmount < 0) this.totalAmount = 0;
   }
 
   onSubmit(): void {
@@ -62,7 +70,6 @@ export class InvoiceComponent {
       discount: this.discount
     };
 
-    // Save to localStorage (for demo purposes)
     let invoices = JSON.parse(localStorage.getItem('invoices') || '[]');
     invoices.push(invoiceData);
     localStorage.setItem('invoices', JSON.stringify(invoices));
@@ -70,7 +77,10 @@ export class InvoiceComponent {
     // Reset form
     this.customerName = '';
     this.contactNumber = '';
-    this.items = [{ itemName: '', quantity: 0, price: 0, total: 0 }];
+    this.items = [{
+      itemName: '', quantity: 0, price: 0, total: 0,
+      discount: 0
+    }];
     this.totalAmount = 0;
     this.discount = 0;
 
