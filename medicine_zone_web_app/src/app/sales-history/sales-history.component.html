@@ -1,0 +1,34 @@
+<div class="mt-4">
+    <h3> Sales History</h3>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Customer Name</th>
+          <th>Contact Number</th>
+          <th>Items</th>
+          <th>Total Amount</th>    
+          <th>Action</th>        
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let sale of salesHistory; let i = index">
+          <td>{{ sale.customerName }}</td>
+          <td>{{ sale.contactNumber }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let item of sale.items">{{ item.itemName }} (x{{ item.quantity }}) - {{ item.total }}</li>
+            </ul>
+          </td>
+          <td>{{ sale.totalAmount }}</td>
+          <td>
+            <!-- Delete button that calls the deleteSale method with index -->
+            <button class="btn btn-danger btn-sm" (click)="deleteSale(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
