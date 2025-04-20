@@ -13,7 +13,7 @@ interface InvoiceItem {
   selector: 'app-invoice',
   imports: [FormsModule, CommonModule],
   templateUrl: './invoice.component.html',
-  styleUrl: './invoice.component.css',
+  styleUrls: ['./invoice.component.css'],
 })
 
 export class InvoiceComponent {
@@ -22,16 +22,16 @@ export class InvoiceComponent {
   items: InvoiceItem[] = [{ itemName: '', quantity: 0, price: 0, total: 0 }];
   totalAmount: number = 0;
   salesHistory: any[] = [];
-  
+  discount: number = 0; // Discount percentage
 
   ngOnInit(): void {
     this.loadSalehistory();
   }
-  
+
   loadSalehistory() {
     const invoices = JSON.parse(localStorage.getItem('invoices') || '[]');
-    this.salesHistory = invoices;    
-  }  
+    this.salesHistory = invoices;
+  }
 
   addItem(): void {
     this.items.push({ itemName: '', quantity: 0, price: 0, total: 0 });
@@ -43,10 +43,14 @@ export class InvoiceComponent {
   }
 
   calculateTotal(): void {
-    this.totalAmount = this.items.reduce((sum, item) => {
+    let subtotal = this.items.reduce((sum, item) => {
       item.total = item.quantity * item.price;
       return sum + item.total;
     }, 0);
+
+    // Apply the discount as percentage
+    const discountAmount = (subtotal * this.discount) / 100;
+    this.totalAmount = subtotal - discountAmount;
   }
 
   onSubmit(): void {
@@ -54,7 +58,8 @@ export class InvoiceComponent {
       customerName: this.customerName,
       contactNumber: this.contactNumber,
       items: this.items,
-      totalAmount: this.totalAmount      
+      totalAmount: this.totalAmount,
+      discount: this.discount
     };
 
     // Save to localStorage (for demo purposes)
@@ -67,15 +72,16 @@ export class InvoiceComponent {
     this.contactNumber = '';
     this.items = [{ itemName: '', quantity: 0, price: 0, total: 0 }];
     this.totalAmount = 0;
+    this.discount = 0;
 
-    alert('Invoice saved successfully!');  
+    alert('Invoice saved successfully!');
     this.loadSalehistory();
   }
 
   deleteSale(index: number): void {
-    if (confirm('are you sre to delete this this sale history')) {
+    if (confirm('Are you sure you want to delete this sale history?')) {
       this.salesHistory.splice(index, 1);
-      localStorage.setItem('invoices', JSON.stringify(this.salesHistory));      
+      localStorage.setItem('invoices', JSON.stringify(this.salesHistory));
     }
-  }  
+  }
 }
