@@ -56,4 +56,9 @@ export class SalesHistoryComponent implements OnInit {
   loadSaleHistory(): void {
     this.salesHistory = JSON.parse(localStorage.getItem('invoices') || '[]');
   }
+
+  getTotalSales(): number {
+    return this.salesHistory.reduce((sum, sale) => sum + (sale.totalAmount || 0), 0);
+  }
+  
 }
