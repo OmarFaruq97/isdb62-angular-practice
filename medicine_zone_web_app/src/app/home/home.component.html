@@ -18,7 +18,7 @@
                width: 100%;">
     <div class="mb-3">
       <label for="username" class="form-label">
-        <strong>Username</strong>
+        <strong>Email</strong>
       </label>
       <input type="text"
              class="form-control"
@@ -38,13 +38,13 @@
              required />
     </div>
 
-    <button type="submit" class="btn btn-primary w-100 mb-2">
+    <button (click)="onLogin()" type="submit" class="btn btn-primary w-100 mb-2">
       Login
     </button>
     
     <div class="d-flex justify-content-between mt-3">
       <a href="forgot-password" class="text-decoration-none">Forgot Password?</a>
-      <a [routerLink]="['/registration']" class="text-decoration-none">Create Account</a>
+      <a [routerLink]="['/signup']" class="text-decoration-none">Register Here</a>
     </div>
   </form>
 </div>

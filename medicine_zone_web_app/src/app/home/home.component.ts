@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,30 @@ import { RouterModule } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-onLogin() {
-throw new Error('Method not implemented.');
-}
+  
+  email = '';
+  password = '';
 
+  constructor(
+    private auth : AuthService,
+    private router: Router
+  ){}
+
+  onLogin() {
+    this.auth.login({
+      email: this.email,
+      password: this.password
+      
+    })
+      .subscribe({
+        next: (res) => {
+          this.auth.setToken(res.access_token);
+          this.router.navigate(['/add-med']); // Adjust route if needed
+        },
+        error: (error) => {
+          alert('Invalid credentials');
+          console.error(error);
+        }
+      });
+  }
 }

@@ -1,0 +1,71 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="col-md-8 col-lg-7">
+      <div class="card shadow p-4 rounded-4">
+        <h3 class="text-center mb-4">✍️ Register</h3>
+        <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName" class="form-label">👤 First Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="Enter first name"
+                [(ngModel)]="register.firstName" name="firstName" required>
+              <div *ngIf="registrationForm.controls['firstName']?.invalid && (registrationForm.controls['firstName']?.dirty || registrationForm.controls['firstName']?.touched)" class="text-danger">
+                First name is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName" class="form-label">👤 Last Name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Enter last name"
+                [(ngModel)]="register.lastName" name="lastName">
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="email" class="form-label">📧 Email address</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email"
+                [(ngModel)]="register.email" name="email" required email>
+              <div *ngIf="registrationForm.controls['email']?.invalid && (registrationForm.controls['email']?.dirty || registrationForm.controls['email']?.touched)">
+                <div *ngIf="registrationForm.controls['email']?.errors?.['required']" class="text-danger">
+                  Email is required.
+                </div>
+                <div *ngIf="registrationForm.controls['email']?.errors?.['email']" class="text-danger">
+                  Enter a valid email address.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="phoneNumber" class="form-label">📞 Phone Number</label>
+              <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter phone number"
+                [(ngModel)]="register.phoneNumber" name="phoneNumber">
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="password" class="form-label">🔑 Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password"
+                [(ngModel)]="register.password" name="password" required>
+              <div *ngIf="registrationForm.controls['password']?.invalid && (registrationForm.controls['password']?.dirty || registrationForm.controls['password']?.touched)" class="text-danger">
+                Password is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="confirmPassword" class="form-label">🔒 Confirm Password</label>
+              <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password"
+                [(ngModel)]="confirmPassword" name="confirmPassword" required>
+              <div *ngIf="confirmPassword !== register.password && registrationForm.controls['confirmPassword']?.touched" class="text-danger">
+                Passwords do not match.
+              </div>
+            </div>
+          </div>
+  
+          <button type="submit" class="btn btn-primary w-100"
+            [disabled]="registrationForm.invalid || confirmPassword !== register.password">Register</button>
+          <div class="mt-3 text-center">
+            Already have an account? <a href="/">Login here</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
