@@ -21,13 +21,14 @@ export class InvoiceComponent {
   customerName: string = '';
   contactNumber: string = '';
   items: InvoiceItem[] = [{
-    itemName: '', quantity: 0, price: 0, total: 0,
+    itemName: '', quantity: 0, price: 0, total: 0,    
     discount: 0
   }];
-  totalAmount: number = 0;
+  amount: number =0;
   discount: number = 0; // Fixed amount discount
+  totalAmount: number = 0;
   salesHistory: any[] = [];
-
+  
   ngOnInit(): void {
     this.loadSalehistory();
   }
@@ -56,8 +57,9 @@ export class InvoiceComponent {
       subtotal += item.total;
     });
 
+    this.amount = subtotal;
     // Apply fixed amount discount (not %)
-    this.totalAmount = subtotal - this.discount;
+    this.totalAmount = subtotal - this.discount /100 ;    
     if (this.totalAmount < 0) this.totalAmount = 0;
   }
 

@@ -1,0 +1,34 @@
+<p>employee works!</p>
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="p-3">
+    <div class="form-group mb-3">
+      <label for="emp_name">Employee Name</label>
+      <input type="text" id="emp_name" class="form-control" formControlName="emp_name" required>
+    </div>
+  
+    <div class="form-group mb-3">
+      <label for="phone_number">Phone Number</label>
+      <input type="text" id="phone_number" class="form-control" formControlName="phone_number">
+    </div>
+  
+    <div class="form-group mb-3">
+      <label for="joining_date">Joining Date</label>
+      <input type="date" id="joining_date" class="form-control" formControlName="joining_date">
+    </div>
+  
+    <div class="form-group mb-3">
+      <label for="salary">Salary</label>
+      <input type="number" id="salary" class="form-control" formControlName="salary" step="0.01">
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
+  <!-- 👇 Employee Details Section -->
+  <div *ngIf="submitted" class="mt-4 p-3 border rounded bg-light">
+    <h5>Employee Details</h5>
+    <p><strong>Name:</strong> {{ employeeData.emp_name }}</p>
+    <p><strong>Phone Number:</strong> {{ employeeData.phone_number || 'N/A' }}</p>
+    <p><strong>Joining Date:</strong> {{ employeeData.joining_date || 'N/A' }}</p>
+    <p><strong>Salary:</strong> {{ employeeData.salary | currency }}</p>
+  </div>
+  
