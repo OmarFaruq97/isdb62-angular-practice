@@ -59,7 +59,7 @@ export class InvoiceComponent {
 
     this.amount = subtotal;
     // Apply fixed amount discount (not %)
-    this.totalAmount = subtotal - this.discount /100 ;    
+    this.totalAmount = subtotal - this.discount;    
     if (this.totalAmount < 0) this.totalAmount = 0;
   }
 
